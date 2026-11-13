@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты — MotoPeak</title>
+	<link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+	<link rel="shortcut icon" href="img/favicon/favicon.ico">
+	<meta name="description" content="Контакты MotoPeak: адрес, телефон, режим работы и форма обратной связи.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+			<a href="index.html" class="logo-link">
+				<img src="img/logo.png" alt="Логотип MotoPeak" class="logo-img">
+				<span>MotoPeak</span>
+			</a>
+		</div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="cart.html">Корзина</a></li>
+                <li><a href="contacts.html" class="active">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <a href="index.html">Главная</a> <span>/</span> Контакты
+        </nav>
+
+        <h1>Контакты</h1>
+
+        <div class="contacts-container">
+            <section class="contact-info">
+                <h2>Наш магазин</h2>
+                <p><strong>Адрес:</strong> г. Москва, ул. Мотостроителей, д. 12</p>
+                <p><strong>Телефон:</strong> +7 (999) 123-45-67</p>
+                <p><strong>Email:</strong> info@motopeak.ru</p>
+                <p><strong>Режим работы:</strong><br>
+                   Пн-Пт: с 10:00 до 20:00<br>
+                   Сб-Вс: с 11:00 до 18:00
+                </p>
+                <p><strong>Реквизиты:</strong><br>
+                   ООО «МотоПик»<br>
+                   ИНН 7700000000<br>
+                   ОГРН 1234567890123
+                </p>
+                <p class="slogan">«MotoPeak — на вершине драйва!»</p>
+            </section>
+
+            <section class="contact-form">
+                <h2>Напишите нам</h2>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Ваше имя:</label>
+                        <input type="text" id="name" name="name" placeholder="Иван" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="ivan@example.ru" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Сообщение:</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Ваш вопрос..." disabled></textarea>
+                    </div>
+                    <button type="submit" class="btn" disabled>Отправить (в разработке)</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-col">
+            <p class="footer-title"><img src="img/logo.png" alt="" class="footer-logo-img"> MotoPeak</p>
+            <p>Мототехника для города и трассы. Помогаем выбрать и оформить.</p>
+        </div>
+        <div class="footer-col">
+            <p class="footer-title">Навигация</p>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="cart.html">Корзина</a></li>
+                <li><a href="contacts.html" >Контакты</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <p class="footer-title">Контакты</p>
+            <p>Москва, ул. Мотостроителей, 12</p>
+            <p>+7 (999) 123-45-67</p>
+            <p>info@motopeak.ru</p>
+        </div>
+    </div>
+    <p class="footer-bottom">&copy; 2026 MotoPeak. Все права защищены.</p>
+</footer>
+</body>
+</html>
