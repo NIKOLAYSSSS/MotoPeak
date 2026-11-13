@@ -31,10 +31,22 @@ a {
     flex-wrap: wrap;
 }
 
-.logo span {
+.logo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo-link span {
     font-size: 1.5rem;
     font-weight: bold;
     letter-spacing: 1px;
+    color: #fff;
+}
+.logo-img {
+    height: 36px;
+    width: 36px;
+    border-radius: 6px;
+    display: block;
 }
 
 .main-nav ul {
@@ -52,6 +64,12 @@ a {
 
 .main-nav a:hover {
     color: #ff5722;
+}
+
+.main-nav a.active {
+    color: #ff5722;
+    border-bottom: 2px solid #ff5722;
+    padding-bottom: 3px;
 }
 
 /* --- Основная часть --- */
@@ -424,7 +442,6 @@ select:disabled, button:disabled, .btn:disabled {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 30px;
 }
-.footer-col h3 { color: #fff; margin-bottom: 12px; font-size: 1.05rem; }
 .footer-col ul { list-style: none; }
 .footer-col a { color: #aaa; }
 .footer-col a:hover { color: #ff5722; }
@@ -435,6 +452,21 @@ select:disabled, button:disabled, .btn:disabled {
     padding-top: 15px;
     margin-top: 30px;
     font-size: 0.9rem;
+}
+
+.footer-logo-img {
+    height: 22px;
+    width: 22px;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+.footer-title {
+    color: #fff;
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+    font-weight: bold;
 }
 
 /* --- Адаптивность --- */
@@ -465,46 +497,4 @@ select:disabled, button:disabled, .btn:disabled {
     .cart-actions {
         flex-direction: column;
     }
-}
-
-/* --- Логотип в шапке --- */
-.logo-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-}
-.logo-link span {
-    font-size: 1.5rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-    color: #fff;
-}
-.logo-img {
-    height: 36px;
-    width: 36px;
-    border-radius: 6px;
-    display: block;
-}
-
-/* --- Логотип в подвале --- */
-.footer-logo-img {
-    height: 22px;
-    width: 22px;
-    border-radius: 4px;
-    vertical-align: middle;
-    margin-right: 4px;
-}
-
-/* --- Стили для заголовков в подвале --- */
-.footer-title {
-    color: #fff;
-    margin-bottom: 12px;
-    font-size: 1.05rem;
-    font-weight: bold;
-}
-
-.main-nav a.active {
-    color: #ff5722; /* Оранжевый цвет */
-    border-bottom: 2px solid #ff5722;
-    padding-bottom: 3px;
 }
