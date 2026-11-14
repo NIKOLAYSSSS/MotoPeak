@@ -10,6 +10,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
     <link rel="shortcut icon" href="img/favicon/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/currency.js" defer></script>
 </head>
 <body>
     <header class="header">
@@ -42,7 +43,18 @@
                 <img src="img/honda-cb125f.jpg" alt="Мотоцикл Honda CB125F" class="product-img">
             </div>
             <div class="item-details">
-                <p class="price">250 000 ₽</p>
+                <div class="currency-bar">
+                    <label for="currency-select">Валюта цен:</label>
+                    <select id="currency-select" name="currency">
+                        <option value="RUB">₽ Рубль</option>
+                        <option value="USD">$ Доллар США</option>
+                        <option value="EUR">€ Евро</option>
+                        <option value="CNY">¥ Юань</option>
+                    </select>
+                    <span class="currency-status" id="currency-status" role="status" aria-live="polite"></span>
+                </div>
+
+                <p class="price" data-price-rub="250000">250 000 ₽</p>
 
                 <h2>Характеристики</h2>
                 <ul class="specs-list">
@@ -74,21 +86,21 @@
                     <img src="img/yamaha-yzf-r125.jpg" alt="Мотоцикл Yamaha YZF-R125" class="product-img">
                     <h3>Yamaha YZF-R125</h3>
                     <p class="specs">A1 | 125 см³ | 15 л.с.</p>
-                    <p class="price">450 000 ₽</p>
+                    <p class="price" data-price-rub="450000">450 000 ₽</p>
                     <a href="catalog.html#yamaha-yzf-r125" class="btn">Смотреть в каталоге</a>
                 </article>
                 <article class="product-card">
                     <img src="img/regulmoto-sport003.jpg" alt="Мотоцикл Regulmoto Sport 003" class="product-img">
                     <h3>Regulmoto Sport 003</h3>
                     <p class="specs">A1 | 125 см³ | 11 л.с.</p>
-                    <p class="price">110 000 ₽</p>
+                    <p class="price" data-price-rub="110000">110 000 ₽</p>
                     <a href="catalog.html#regulmoto-sport003" class="btn">Смотреть в каталоге</a>
                 </article>
                 <article class="product-card">
                     <img src="img/bajaj-pulsar-ns200.jpg" alt="Мотоцикл Bajaj Pulsar NS200" class="product-img">
                     <h3>Bajaj Pulsar NS200</h3>
                     <p class="specs">A | 199 см³ | 24 л.с.</p>
-                    <p class="price">230 000 ₽</p>
+                    <p class="price" data-price-rub="230000">230 000 ₽</p>
                     <a href="catalog.html#bajaj-pulsar-ns200" class="btn">Смотреть в каталоге</a>
                 </article>
             </div>

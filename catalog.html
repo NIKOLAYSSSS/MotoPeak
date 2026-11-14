@@ -10,6 +10,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
     <link rel="shortcut icon" href="img/favicon/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/validation.js" defer></script>
+    <script src="js/catalog.js" defer></script>
+    <script src="js/currency.js" defer></script>
 </head>
 <body>
     <header class="header">
@@ -37,10 +40,10 @@
         <h1>Каталог мототехники</h1>
         <p class="subtitle">15 моделей в наличии</p>
 
-        <div class="filters">
+        <form class="filters" id="filter-form" novalidate>
             <div class="filter-group">
                 <label for="category-filter">Категория прав:</label>
-                <select id="category-filter" disabled>
+                <select id="category-filter" name="category">
                     <option value="all">Все категории</option>
                     <option value="M">M (Мопеды)</option>
                     <option value="A1">A1 (125 см³)</option>
@@ -49,7 +52,7 @@
             </div>
             <div class="filter-group">
                 <label for="volume-filter">Объем двигателя:</label>
-                <select id="volume-filter" disabled>
+                <select id="volume-filter" name="volume">
                     <option value="all">Любой</option>
                     <option value="125">До 125 см³</option>
                     <option value="400">125–400 см³</option>
@@ -58,119 +61,145 @@
                 </select>
             </div>
             <div class="filter-group">
+                <label for="price-min">Цена от, ₽:</label>
+                <input type="number" id="price-min" name="price-min" min="0" step="1000" placeholder="0" aria-describedby="price-min-error">
+                <span class="field-error" id="price-min-error"></span>
+            </div>
+            <div class="filter-group">
+                <label for="price-max">Цена до, ₽:</label>
+                <input type="number" id="price-max" name="price-max" min="0" step="1000" placeholder="1500000" aria-describedby="price-max-error">
+                <span class="field-error" id="price-max-error"></span>
+            </div>
+            <div class="filter-group">
                 <label for="sort-filter">Сортировка:</label>
-                <select id="sort-filter" disabled>
+                <select id="sort-filter" name="sort">
                     <option value="default">По умолчанию</option>
                     <option value="price-asc">По возрастанию цены</option>
                     <option value="price-desc">По убыванию цены</option>
                 </select>
             </div>
-        </div>
+            <div class="filter-actions">
+                <button type="submit" class="btn">Подобрать</button>
+                <button type="reset" class="btn btn-secondary">Сбросить</button>
+            </div>
+        </form>
         <h2>Все модели</h2>
+        <div class="currency-bar">
+            <label for="currency-select">Валюта цен:</label>
+            <select id="currency-select" name="currency">
+                <option value="RUB">₽ Рубль</option>
+                <option value="USD">$ Доллар США</option>
+                <option value="EUR">€ Евро</option>
+                <option value="CNY">¥ Юань</option>
+            </select>
+            <span class="currency-status" id="currency-status" role="status" aria-live="polite"></span>
+        </div>
+        <p class="result-count" id="result-count" role="status" aria-live="polite"></p>
+        <p class="empty-message" id="empty-message" hidden>По заданным условиям моделей не найдено. Измените параметры подбора.</p>
         <div class="product-grid">
-            <article class="product-card" id="alpha-rx50">
+            <article class="product-card" id="alpha-rx50" data-category="M" data-volume="50">
                 <img src="img/alpha-rx50.jpg" alt="Мопед Alpha RX 50" class="product-img">
                 <h3>Alpha RX 50</h3>
                 <p class="specs">M | 50 см³ | 3 л.с.</p>
-                <p class="price">65 000 ₽</p>
+                <p class="price" data-price-rub="65000">65 000 ₽</p>
                 <a href="item.html" class="btn">Подробнее</a>
             </article>
-            <article class="product-card" id="stels-flex50">
+            <article class="product-card" id="stels-flex50" data-category="M" data-volume="49.7">
                 <img src="img/stels-flex50.jpg" alt="Скутер Stels Flex 50" class="product-img">
                 <h3>Stels Flex 50</h3>
                 <p class="specs">M | 49.7 см³ | 2.5 л.с.</p>
-                <p class="price">58 000 ₽</p>
+                <p class="price" data-price-rub="58000">58 000 ₽</p>
                 <a href="item.html" class="btn">Подробнее</a>
             </article>
-            <article class="product-card" id="honda-cb125f">
+            <article class="product-card" id="honda-cb125f" data-category="A1" data-volume="124">
                 <img src="img/honda-cb125f.jpg" alt="Мотоцикл Honda CB125F" class="product-img">
                 <h3>Honda CB125F</h3>
                 <p class="specs">A1 | 124 см³ | 11 л.с.</p>
-                <p class="price">250 000 ₽</p>
+                <p class="price" data-price-rub="250000">250 000 ₽</p>
                 <a href="item.html" class="btn">Подробнее</a>
             </article>
-            <article class="product-card" id="yamaha-yzf-r125">
+            <article class="product-card" id="yamaha-yzf-r125" data-category="A1" data-volume="125">
                 <img src="img/yamaha-yzf-r125.jpg" alt="Мотоцикл Yamaha YZF-R125" class="product-img">
                 <h3>Yamaha YZF-R125</h3>
                 <p class="specs">A1 | 125 см³ | 15 л.с.</p>
-                <p class="price">450 000 ₽</p>
+                <p class="price" data-price-rub="450000">450 000 ₽</p>
                 <a href="item.html" class="btn">Подробнее</a>
             </article>
-            <article class="product-card" id="regulmoto-sport003">
+            <article class="product-card" id="regulmoto-sport003" data-category="A1" data-volume="125">
                 <img src="img/regulmoto-sport003.jpg" alt="Мотоцикл Regulmoto Sport 003" class="product-img">
                 <h3>Regulmoto Sport 003</h3>
                 <p class="specs">A1 | 125 см³ | 11 л.с.</p>
-                <p class="price">110 000 ₽</p>
+                <p class="price" data-price-rub="110000">110 000 ₽</p>
                 <a href="item.html" class="btn">Подробнее</a>
             </article>
-            <article class="product-card" id="bajaj-pulsar-ns200">
+            <article class="product-card" id="bajaj-pulsar-ns200" data-category="A" data-volume="199">
                 <img src="img/bajaj-pulsar-ns200.jpg" alt="Мотоцикл Bajaj Pulsar NS200" class="product-img">
                 <h3>Bajaj Pulsar NS200</h3>
                 <p class="specs">A | 199 см³ | 24 л.с.</p>
-                <p class="price">230 000 ₽</p>
+                <p class="price" data-price-rub="230000">230 000 ₽</p>
                 <a href="item.html" class="btn">Подробнее</a>
             </article>
-            <article class="product-card" id="motoland-xr250">
+            <article class="product-card" id="motoland-xr250" data-category="A" data-volume="250">
                 <img src="img/motoland-xr250.jpg" alt="Мотоцикл Motoland XR250" class="product-img">
                 <h3>Motoland XR250</h3>
                 <p class="specs">A | 250 см³ | 21 л.с.</p>
-                <p class="price">190 000 ₽</p>
+                <p class="price" data-price-rub="190000">190 000 ₽</p>
                 <a href="item.html" class="btn">Подробнее</a>
             </article>
-            <article class="product-card" id="ktm-duke200">
+            <article class="product-card" id="ktm-duke200" data-category="A" data-volume="200">
                 <img src="img/ktm-duke200.jpg" alt="Мотоцикл KTM Duke 200" class="product-img">
                 <h3>KTM Duke 200</h3>
                 <p class="specs">A | 200 см³ | 26 л.с.</p>
-                <p class="price">310 000 ₽</p>
+                <p class="price" data-price-rub="310000">310 000 ₽</p>
                 <a href="item.html" class="btn">Подробнее</a>
             </article>
-            <article class="product-card" id="bmw-g310r">
+            <article class="product-card" id="bmw-g310r" data-category="A" data-volume="313">
                 <img src="img/bmw-g310r.jpg" alt="Мотоцикл BMW G 310 R" class="product-img">
                 <h3>BMW G 310 R</h3>
                 <p class="specs">A | 313 см³ | 34 л.с.</p>
-                <p class="price">580 000 ₽</p>
+                <p class="price" data-price-rub="580000">580 000 ₽</p>
                 <a href="item.html" class="btn">Подробнее</a>
             </article>
-            <article class="product-card" id="kawasaki-ninja400">
+            <article class="product-card" id="kawasaki-ninja400" data-category="A" data-volume="399">
                 <img src="img/kawasaki-ninja400.jpg" alt="Мотоцикл Kawasaki Ninja 400" class="product-img">
                 <h3>Kawasaki Ninja 400</h3>
                 <p class="specs">A | 399 см³ | 45 л.с.</p>
-                <p class="price">550 000 ₽</p>
+                <p class="price" data-price-rub="550000">550 000 ₽</p>
                 <a href="item.html" class="btn">Подробнее</a>
             </article>
-            <article class="product-card" id="honda-rebel500">
+            <article class="product-card" id="honda-rebel500" data-category="A" data-volume="471">
                 <img src="img/honda-rebel500.jpg" alt="Мотоцикл Honda Rebel 500" class="product-img">
                 <h3>Honda Rebel 500</h3>
                 <p class="specs">A | 471 см³ | 45 л.с.</p>
-                <p class="price">650 000 ₽</p>
+                <p class="price" data-price-rub="650000">650 000 ₽</p>
                 <a href="item.html" class="btn">Подробнее</a>
             </article>
-            <article class="product-card" id="cfmoto-650nk">
+            <article class="product-card" id="cfmoto-650nk" data-category="A" data-volume="649">
                 <img src="img/cfmoto-650nk.jpg" alt="Мотоцикл CFMOTO 650NK" class="product-img">
                 <h3>CFMOTO 650NK</h3>
                 <p class="specs">A | 649 см³ | 61 л.с.</p>
-                <p class="price">480 000 ₽</p>
+                <p class="price" data-price-rub="480000">480 000 ₽</p>
                 <a href="item.html" class="btn">Подробнее</a>
             </article>
-            <article class="product-card" id="yamaha-mt07">
+            <article class="product-card" id="yamaha-mt07" data-category="A" data-volume="689">
                 <img src="img/yamaha-mt07.jpg" alt="Мотоцикл Yamaha MT-07" class="product-img">
                 <h3>Yamaha MT-07</h3>
                 <p class="specs">A | 689 см³ | 73 л.с.</p>
-                <p class="price">800 000 ₽</p>
+                <p class="price" data-price-rub="800000">800 000 ₽</p>
                 <a href="item.html" class="btn">Подробнее</a>
             </article>
-            <article class="product-card" id="suzuki-gsxr600">
+            <article class="product-card" id="suzuki-gsxr600" data-category="A" data-volume="599">
                 <img src="img/suzuki-gsxr600.jpg" alt="Мотоцикл Suzuki GSX-R600" class="product-img">
                 <h3>Suzuki GSX-R600</h3>
                 <p class="specs">A | 599 см³ | 125 л.с.</p>
-                <p class="price">950 000 ₽</p>
+                <p class="price" data-price-rub="950000">950 000 ₽</p>
                 <a href="item.html" class="btn">Подробнее</a>
             </article>
-            <article class="product-card" id="indian-scout">
+            <article class="product-card" id="indian-scout" data-category="A" data-volume="1133">
                 <img src="img/indian-scout.jpg" alt="Мотоцикл Indian Scout Bobber" class="product-img">
                 <h3>Indian Scout Bobber</h3>
                 <p class="specs">A | 1133 см³ | 100 л.с.</p>
-                <p class="price">1 500 000 ₽</p>
+                <p class="price" data-price-rub="1500000">1 500 000 ₽</p>
                 <a href="item.html" class="btn">Подробнее</a>
             </article>
         </div>

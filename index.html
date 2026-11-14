@@ -10,6 +10,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
     <link rel="shortcut icon" href="img/favicon/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/currency.js" defer></script>
 </head>
 <body>
     <header class="header">
@@ -80,47 +81,57 @@
         <!-- Популярные модели -->
         <section class="featured">
             <h2>Популярные модели</h2>
+            <div class="currency-bar">
+                <label for="currency-select">Валюта цен:</label>
+                <select id="currency-select" name="currency">
+                    <option value="RUB">₽ Рубль</option>
+                    <option value="USD">$ Доллар США</option>
+                    <option value="EUR">€ Евро</option>
+                    <option value="CNY">¥ Юань</option>
+                </select>
+                <span class="currency-status" id="currency-status" role="status" aria-live="polite"></span>
+            </div>
             <div class="product-grid">
                 <article class="product-card">
                     <img src="img/honda-cb125f.jpg" alt="Мотоцикл Honda CB125F" class="product-img">
                     <h3>Honda CB125F</h3>
                     <p class="specs">A1 | 124 см³ | 11 л.с.</p>
-                    <p class="price">250 000 ₽</p>
+                    <p class="price" data-price-rub="250000">250 000 ₽</p>
                     <a href="item.html" class="btn">Подробнее</a>
                 </article>
                 <article class="product-card">
                     <img src="img/yamaha-mt07.jpg" alt="Мотоцикл Yamaha MT-07" class="product-img">
                     <h3>Yamaha MT-07</h3>
                     <p class="specs">A | 689 см³ | 73 л.с.</p>
-                    <p class="price">800 000 ₽</p>
+                    <p class="price" data-price-rub="800000">800 000 ₽</p>
                     <a href="item.html" class="btn">Подробнее</a>
                 </article>
                 <article class="product-card">
                     <img src="img/kawasaki-ninja400.jpg" alt="Мотоцикл Kawasaki Ninja 400" class="product-img">
                     <h3>Kawasaki Ninja 400</h3>
                     <p class="specs">A | 399 см³ | 45 л.с.</p>
-                    <p class="price">550 000 ₽</p>
+                    <p class="price" data-price-rub="550000">550 000 ₽</p>
                     <a href="item.html" class="btn">Подробнее</a>
                 </article>
                 <article class="product-card">
                     <img src="img/bmw-g310r.jpg" alt="Мотоцикл BMW G 310 R" class="product-img">
                     <h3>BMW G 310 R</h3>
                     <p class="specs">A | 313 см³ | 34 л.с.</p>
-                    <p class="price">580 000 ₽</p>
+                    <p class="price" data-price-rub="580000">580 000 ₽</p>
                     <a href="item.html" class="btn">Подробнее</a>
                 </article>
                 <article class="product-card">
                     <img src="img/stels-flex50.jpg" alt="Скутер Stels Flex 50" class="product-img">
                     <h3>Stels Flex 50</h3>
                     <p class="specs">M | 49.7 см³ | 2.5 л.с.</p>
-                    <p class="price">58 000 ₽</p>
+                    <p class="price" data-price-rub="58000">58 000 ₽</p>
                     <a href="item.html" class="btn">Подробнее</a>
                 </article>
                 <article class="product-card">
                     <img src="img/honda-rebel500.jpg" alt="Мотоцикл Honda Rebel 500" class="product-img">
                     <h3>Honda Rebel 500</h3>
                     <p class="specs">A | 471 см³ | 45 л.с.</p>
-                    <p class="price">650 000 ₽</p>
+                    <p class="price" data-price-rub="650000">650 000 ₽</p>
                     <a href="item.html" class="btn">Подробнее</a>
                 </article>
             </div>
